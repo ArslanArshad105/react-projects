@@ -1,0 +1,38 @@
+     
+
+.spinner-container
+{
+    
+    z-index: 99;
+    width: 30px;
+    padding: 10px;
+    top: 80%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    left: 10%;
+    margin-top: 150px;
+    margin-left: -100px;
+    border-radius: 50%;
+
+}
+
+#upper
+
+{
+    animation: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+}
+
+@keyframes rotate {
+    0%
+    {
+        transform: rotateZ(0deg);
+    }
+    100%
+    {
+        transform: rotateZ(360deg);
+    }
+}

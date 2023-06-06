@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navigationbar from "./Components/Navigationbar";
+import ContactForm from "./Components/ContactForm";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+import AboutUs from "./Components/AboutUs";
+import Blogs from "./Components/Blogs";
+import Airbnb from "./Components/AirbnbPage/Airbnb";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navigationbar
+        title="Arslan"
+        aboutus="About Us"
+        tdl="To Do List"
+        smm="Social Media Marketing"
+        sem="Search Engine Marketing"
+        ppc="PPC Management"
+        blogs="Blogs"
+        contactus="Contact Us"
+        btnnmbrurl="tel: +923070949488"
+        button="+923070949488"
+      />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/contact-us/" element={<ContactForm />}></Route>
+        <Route path="/about-us/" element={<AboutUs />}></Route>
+        <Route path="/blogs/" element={<Blogs />}></Route>
+        <Route path="/airbnb/" element={<Airbnb />}></Route>
+      </Routes>
+    </>
   );
 }
 
