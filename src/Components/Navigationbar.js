@@ -28,7 +28,7 @@ const Navigationbar = (props) => {
             >
               <NavDropdown.Item href="/airbnb/">Airbnb</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#">{props.tdl}</NavDropdown.Item>
+              <NavDropdown.Item href="/todolist/">To Do List</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#">{props.smm}</NavDropdown.Item>
               <NavDropdown.Divider />

@@ -1,0 +1,25 @@
+.TodoListP-Bg{
+    background: #8758ff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 100% !important;
+    height: calc(100vh - 56px);
+}
+.InputTodos{
+    margin: 100px;
+    background-color: #050505;
+}
+.InputTodosh1 {
+    background-color: #427897;
+    color: #ffffff;
+    margin: 50px;
+    padding: 20px 0px 20px 0px;
+}
+.InputTodos-FormControl{
+    font-size: 16px !important;
+    margin:  0px 50px 0px 50px;
+    padding: 10px 0px 10px 0px !important;
+    width: 80% !important;
+    border-radius: 0px !important;
+}

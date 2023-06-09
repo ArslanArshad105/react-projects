@@ -73,45 +73,55 @@ const Airbnb = () => {
           />
         </Navbar.Brand>
       </Navbar>
-      <Heroimg />
-      <Container>
-        <Row>{cards}</Row>
-        <Row>
-          <Row>
-            <h1 className="card2heading">This is API Record</h1>
-            <Row>
-              <Button onClick={() => isReload(!reload)}>Reload</Button>
-              <span>
-                <p></p>
-              </span>
-              <Button
-                onClick={() => {
-                  setPagenumber(0);
-                }}
-              >
-                Reset
-              </Button>
-              <span>
-                <p></p>
-              </span>
-              <Col>
-                <Button
-                  onClick={() =>
-                    pagenumber > 0 ? setPagenumber(pagenumber - 1) : null
-                  }
-                >
-                  previous Page
-                </Button>
-              </Col>
-              <Col>
-                <Button onClick={() => setPagenumber(pagenumber + 1)}>
-                  Next Page
-                </Button>
-              </Col>
-            </Row>
-            <h1>Page number: {pagenumber + 1}</h1>
-          </Row>
 
+      <Container>
+        <Heroimg />
+        <Row>{cards}</Row>
+      </Container>
+      <Row style={{ backgroundColor: "#E5E7E9", marginBottom: "20px" }}>
+        <h1 className="card2heading">The Data Below is Rendering from API</h1>
+      </Row>
+      <Container>
+        <Row>
+          <Button
+            style={{ marginBottom: "20px" }}
+            onClick={() => isReload(!reload)}
+          >
+            Reload
+          </Button>
+        </Row>
+        <Row>
+          <Button
+            onClick={() => {
+              setPagenumber(0);
+            }}
+          >
+            Reset
+          </Button>
+          <span>
+            <p></p>
+          </span>
+        </Row>
+        <Row>
+          <Col xs={6} className="Pg-Btn">
+            <Button
+              onClick={() =>
+                pagenumber > 0 ? setPagenumber(pagenumber - 1) : null
+              }
+            >
+              Previous Page
+            </Button>
+          </Col>
+          <Col xs={6} className="Pg-Btn">
+            <Button onClick={() => setPagenumber(pagenumber + 1)}>
+              Next Page
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <h1 className="card2heading">Page Number: {pagenumber + 1}</h1>
+        </Row>
+        <Row>
           <>{loading ? <Spinner /> : card2}</>
         </Row>
       </Container>
