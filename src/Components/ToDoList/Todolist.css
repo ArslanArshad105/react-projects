@@ -6,8 +6,9 @@
     justify-content: center;
     text-align: center;
     max-width: 100% !important;
-    /* height: calc(100vh - 56px); */
-    height: calc(100vh); 
+    height: calc(100vh - 56px);
+    /* height: calc(100vh);  */
+    /* min-height: 100vh; */
 }
 .Center-Container{
     margin: 100px;

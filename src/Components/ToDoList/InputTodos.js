@@ -14,8 +14,12 @@ const InputTodos = ({ AddTodo }) => {
     setInputList(event.target.value);
   };
   const AddTask = () => {
-    AddTodo(inputList);
-    setInputList("");
+    if (inputList === "") {
+      console.log("Field is required!");
+    } else {
+      AddTodo(inputList);
+      setInputList("");
+    }
   };
   return (
     <Container>
@@ -28,6 +32,7 @@ const InputTodos = ({ AddTodo }) => {
             placeholder="What is the Task Today?"
             value={inputList}
             onChange={OnInputChange}
+            required
           />
 
           <ButtonGroup>
