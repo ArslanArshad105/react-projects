@@ -1,14 +1,19 @@
 import React from "react";
 import "../ToDoList/Todolist.css";
-import InputTodos from "./InputTodos";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Container } from "react-bootstrap";
-const ToDoListP = () => {
+
+const ToDoListP = ({ taskName }) => {
   return (
-    <>
-      <Container className="TodoListP-Bg">
-        <InputTodos />
+    <Container className="Todolist-container">
+      <p>{taskName}</p>
+
+      <Container>
+        <FontAwesomeIcon icon={faPenToSquare} />
+        <FontAwesomeIcon icon={faTrash} />
       </Container>
-    </>
+    </Container>
   );
 };
 
