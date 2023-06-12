@@ -1,25 +1,59 @@
-.TodoListP-Bg{
-    background: #8758ff;
+.Main-Container{
+    /* background: #8758ff; */
+    background: #427897;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
     max-width: 100% !important;
-    height: calc(100vh - 56px);
+    /* height: calc(100vh - 56px); */
+    height: calc(100vh); 
 }
-.InputTodos{
+.Center-Container{
     margin: 100px;
-    background-color: #050505;
+    /* width: 50%; */
+    background-color: #1A1A40;
+    height:fit-content;
+    padding-bottom: 40px;
 }
 .InputTodosh1 {
-    background-color: #427897;
+    /* background-color: #427897; */
     color: #ffffff;
     margin: 50px;
     padding: 20px 0px 20px 0px;
 }
 .InputTodos-FormControl{
     font-size: 16px !important;
-    margin:  0px 50px 0px 50px;
+    /* margin:  0px 50px 0px 50px; */
     padding: 10px 0px 10px 0px !important;
     width: 80% !important;
     border-radius: 0px !important;
 }
+.todo-btn {
+    background-color: #427897 !important;
+    padding: 10px 10px 10px 10px !important;
+    color: #fff;
+    border: none !important;
+    cursor: pointer;
+    border-radius: 0px !important;
+    
+  }
+  .Todolist-container{
+    /* background-color: #427897 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    background: #427897;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
