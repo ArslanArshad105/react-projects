@@ -22,7 +22,7 @@ const EditTodoTask = ({ editTaskk, task }) => {
     }
   };
   return (
-    <Container>
+    <Container style={{ marginBottom: "20px" }}>
       <InputGroup>
         <FormControl
           className="InputTodos-FormControl"
