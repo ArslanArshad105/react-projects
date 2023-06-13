@@ -2,22 +2,30 @@ import React from "react";
 import "../ToDoList/Todolist.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Container } from "react-bootstrap";
+import { Col, Container } from "react-bootstrap";
 
 const TodosList = ({ task, DeleteTask, EditTask }) => {
   return (
     <Container className="Todolist-container">
-      <p>{task.taskname}</p>
+      <Col>
+        {" "}
+        <p>{task.taskname}</p>{" "}
+      </Col>
 
-      <Container>
-        <FontAwesomeIcon icon={faPenToSquare} onClick={EditTask} />
+      <Col>
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          onClick={() => {
+            EditTask(task.id);
+          }}
+        />
         <FontAwesomeIcon
           icon={faTrash}
           onClick={() => {
             DeleteTask(task.id);
           }}
         />
-      </Container>
+      </Col>
     </Container>
   );
 };

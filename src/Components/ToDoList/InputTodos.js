@@ -15,7 +15,6 @@ const InputTodos = ({ AddTodo }) => {
   };
   const AddTask = () => {
     if (inputList === "") {
-      console.log("Field is required!");
     } else {
       AddTodo(inputList);
       setInputList("");
@@ -30,6 +29,7 @@ const InputTodos = ({ AddTodo }) => {
             className="InputTodos-FormControl"
             type="text"
             placeholder="What is the Task Today?"
+            maxLength={50}
             value={inputList}
             onChange={OnInputChange}
             required
