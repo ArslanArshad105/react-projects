@@ -14,8 +14,11 @@ const InputTodos = ({ AddTodo }) => {
     setInputList(event.target.value);
   };
   const AddTask = () => {
-    AddTodo(inputList);
-    setInputList("");
+    if (inputList === "") {
+    } else {
+      AddTodo(inputList);
+      setInputList("");
+    }
   };
   return (
     <Container>
@@ -26,8 +29,10 @@ const InputTodos = ({ AddTodo }) => {
             className="InputTodos-FormControl"
             type="text"
             placeholder="What is the Task Today?"
+            maxLength={50}
             value={inputList}
             onChange={OnInputChange}
+            required
           />
 
           <ButtonGroup>

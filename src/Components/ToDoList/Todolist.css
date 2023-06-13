@@ -1,5 +1,4 @@
 .Main-Container{
-    /* background: #8758ff; */
     background: #427897;
     display: flex;
     flex-direction: row;
@@ -7,24 +6,22 @@
     text-align: center;
     max-width: 100% !important;
     /* height: calc(100vh - 56px); */
-    height: calc(100vh); 
+    min-height: 91vh;
+    max-height: auto;
 }
 .Center-Container{
     margin: 100px;
-    /* width: 50%; */
     background-color: #1A1A40;
     height:fit-content;
     padding-bottom: 40px;
 }
 .InputTodosh1 {
-    /* background-color: #427897; */
     color: #ffffff;
     margin: 50px;
     padding: 20px 0px 20px 0px;
 }
 .InputTodos-FormControl{
     font-size: 16px !important;
-    /* margin:  0px 50px 0px 50px; */
     padding: 10px 0px 10px 0px !important;
     width: 80% !important;
     border-radius: 0px !important;
@@ -39,15 +36,12 @@
     
   }
   .Todolist-container{
-    /* background-color: #427897 !important;
+
+    width: 80% !important;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center; */
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-between;
+    word-break: break-word;
     align-items: center;
     background: #427897;
     color: #fff;
