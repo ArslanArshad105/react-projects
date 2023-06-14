@@ -5,12 +5,6 @@ import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Form, Col, Container, FormCheck } from "react-bootstrap";
 
 const TodosList = ({ task, DeleteTask, EditTask, handlechange }) => {
-  // const [checked, setChecked] = useState(false);
-
-  // const handlechange = () => {
-  //   setChecked(!checked);
-  //   console.log("The checkbox was toggled");
-  // };
   return (
     <Container className="Todolist-container">
       <Col>
@@ -20,7 +14,6 @@ const TodosList = ({ task, DeleteTask, EditTask, handlechange }) => {
             onChange={() => {
               handlechange(task.taskname, task.id);
             }}
-            // onChange={handlechange}
           />
         </Form>
       </Col>
@@ -28,7 +21,6 @@ const TodosList = ({ task, DeleteTask, EditTask, handlechange }) => {
         <span className={task.isChecked ? "On-Checked" : ""}>
           {task.taskname}
         </span>
-        {/* <span>{task.taskname}</span> */}
       </Col>
 
       <Col>
