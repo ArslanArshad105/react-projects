@@ -9,10 +9,10 @@ const DisplayTodosList = () => {
   // const loadedTodos = localStorage.getItem("Todos")
   //   ? JSON.parse(localStorage.getItem("Todos"))
   //   : [];
-
   // const [todos, setTodos] = useState(loadedTodos);
 
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("Todos")));
+  // const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("Todos", JSON.stringify(todos));
@@ -21,7 +21,7 @@ const DisplayTodosList = () => {
   const AddTodos = (taskn) => {
     setTodos([
       ...todos,
-      { id: uuidv4(), taskname: taskn, completed: false, isEditing: false },
+      { id: uuidv4(), taskname: taskn, isChecked: false, isEditing: false },
     ]);
   };
 
@@ -44,7 +44,26 @@ const DisplayTodosList = () => {
           let newTodo = {
             id: todo.id,
             taskname: taskname,
+            isChecked: todo.isChecked,
             isEditing: !todo.isEditing,
+          };
+          return newTodo;
+        } else {
+          return todo;
+        }
+      })
+    );
+  };
+
+  const checkedFun = (taskname, id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          let newTodo = {
+            id: todo.id,
+            taskname: taskname,
+            isChecked: !todo.isChecked,
+            isEditing: todo.isEditing,
           };
           return newTodo;
         } else {
@@ -68,6 +87,7 @@ const DisplayTodosList = () => {
                 task={todo}
                 DeleteTask={DeleteTodoFun}
                 EditTask={EditTodoFun}
+                handlechange={checkedFun}
               />
             )
           )}

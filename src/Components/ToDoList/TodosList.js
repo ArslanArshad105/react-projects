@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import "../ToDoList/Todolist.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Form, Col, Container, FormCheck } from "react-bootstrap";
 
-const TodosList = ({ task, DeleteTask, EditTask }) => {
-  const [checked, setChecked] = useState(false);
-
-  const handlechange = () => {
-    setChecked(!checked);
-    console.log("The checkbox was toggled");
-  };
+const TodosList = ({ task, DeleteTask, EditTask, handlechange }) => {
   return (
     <Container className="Todolist-container">
       <Col>
         <Form>
-          <FormCheck onChange={handlechange} />
+          <FormCheck
+            checked={task.isChecked}
+            onChange={() => {
+              handlechange(task.taskname, task.id);
+            }}
+          />
         </Form>
       </Col>
       <Col>
-        <span className={checked ? "On-Checked" : ""}>{task.taskname}</span>
+        <span className={task.isChecked ? "On-Checked" : ""}>
+          {task.taskname}
+        </span>
       </Col>
 
       <Col>
