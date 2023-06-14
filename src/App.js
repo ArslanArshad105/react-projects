@@ -6,7 +6,8 @@ import Home from "./Components/Home";
 import AboutUs from "./Components/AboutUs";
 import Blogs from "./Components/Blogs";
 import Airbnb from "./Components/AirbnbPage/Airbnb";
-import DisplayTodosList from "./Components/ToDoList/DisplayTodosList";
+// import DisplayTodosList from "./Components/ToDoList/DisplayTodosList";
+import SaveToLocalStorage from "./Components/ToDoList/SaveToLocalStorage";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/about-us/" element={<AboutUs />}></Route>
         <Route path="/blogs/" element={<Blogs />}></Route>
         <Route path="/airbnb/" element={<Airbnb />}></Route>
-        <Route path="/todolist/" element={<DisplayTodosList />}></Route>
+        <Route path="/todolist/" element={<SaveToLocalStorage />}></Route>
       </Routes>
     </>
   );
