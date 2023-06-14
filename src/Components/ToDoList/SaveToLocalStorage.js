@@ -6,13 +6,11 @@ import EditTodoTask from "./EditTodoTask";
 import { v4 as uuidv4 } from "uuid";
 
 const DisplayTodosList = () => {
-  // const loadedTodos = localStorage.getItem("Todos")
-  //   ? JSON.parse(localStorage.getItem("Todos"))
-  //   : [];
-  // const [todos, setTodos] = useState(loadedTodos);
-
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("Todos")));
-  // const [checked, setChecked] = useState(false);
+  const [todos, setTodos] = useState(
+    localStorage.getItem("Todos")
+      ? JSON.parse(localStorage.getItem("Todos"))
+      : []
+  );
 
   useEffect(() => {
     localStorage.setItem("Todos", JSON.stringify(todos));
