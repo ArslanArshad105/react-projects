@@ -31,6 +31,7 @@ const EditTodoTask = ({ editTaskk, task }) => {
           maxLength={50}
           value={inputList}
           onChange={OnInputUpdate}
+          required
         />
 
         <ButtonGroup>
