@@ -1,8 +1,12 @@
-.stickyNavbar {
+/* .stickyNavbar {
 
   position: sticky;
   top: 0;
   width: 100%;
+} */
+
+.Dropdown-Menu-margin{
+  margin-top: -10px;
 }
 .Airbnbnav {
   background-color: #FFFFFF;

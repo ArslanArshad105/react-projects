@@ -12,8 +12,13 @@
 .Center-Container{
     margin: 100px;
     background-color: #1A1A40;
+    border-radius: 8px;
     height:fit-content;
     padding-bottom: 40px;
+}
+.Input-Container{
+  margin-bottom: 20px;
+  width: 83% !important;
 }
 .InputTodosh1 {
     color: #ffffff;
