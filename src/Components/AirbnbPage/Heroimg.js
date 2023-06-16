@@ -4,7 +4,7 @@ const Heroimg = () => {
   return (
     <Container className="hero--container">
       <img
-        src="http://localhost:3000/Media/Heroimage.png"
+        src="../../Media/Heroimage.png"
         alt="HeroImage"
         className="hero-photo"
       />

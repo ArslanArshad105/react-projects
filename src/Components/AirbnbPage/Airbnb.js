@@ -67,10 +67,7 @@ const Airbnb = () => {
     <>
       <Navbar className="Airbnbnav">
         <Navbar.Brand className="Airbnblogo">
-          <img
-            src="http://localhost:3000/Media/Airbnb_logo.png"
-            alt="Airbnb Logo"
-          />
+          <img src="../../Media/Airbnb_logo.png" alt="Airbnb Logo" />
         </Navbar.Brand>
       </Navbar>
 

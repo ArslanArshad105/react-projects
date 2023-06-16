@@ -21,7 +21,7 @@ const InputTodos = ({ AddTodo }) => {
     }
   };
   return (
-    <Container style={{ marginBottom: "20px" }}>
+    <Container className="Input-Container">
       <h1 className="InputTodosh1">Get Things Done!</h1>
       <div>
         <InputGroup>
