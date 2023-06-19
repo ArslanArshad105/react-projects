@@ -19,3 +19,8 @@
 .Heading-Color{
     color: #FFFFFF !important;
 }
+.Heading4-width{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
