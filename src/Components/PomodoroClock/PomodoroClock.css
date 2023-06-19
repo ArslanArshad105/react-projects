@@ -1,0 +1,21 @@
+.Pomo-Main-Container{
+    background: #1e555c;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    max-width: 100% !important;
+    /* height: calc(100vh - 56px); */
+    min-height: 91vh;
+    max-height: auto;
+}
+.Pomo-Center-Container{
+    margin: 100px;
+    background-color: #07071c;
+    border-radius: 8px;
+    height:fit-content;
+    padding-bottom: 40px;
+}
+.Heading-Color{
+    color: #FFFFFF !important;
+}

@@ -8,6 +8,7 @@ import Blogs from "./Components/Blogs";
 import Airbnb from "./Components/AirbnbPage/Airbnb";
 // import DisplayTodosList from "./Components/ToDoList/DisplayTodosList";
 import SaveToLocalStorage from "./Components/ToDoList/SaveToLocalStorage";
+import PomodoroClock from "./Components/PomodoroClock/PomodoroClock";
 
 function App() {
   return (
@@ -15,7 +16,6 @@ function App() {
       <Navigationbar
         title="Arslan"
         aboutus="About Us"
-        smm="Social Media Marketing"
         sem="Search Engine Marketing"
         ppc="PPC Management"
         blogs="Blogs"
@@ -30,6 +30,7 @@ function App() {
         <Route path="/blogs/" element={<Blogs />}></Route>
         <Route path="/airbnb/" element={<Airbnb />}></Route>
         <Route path="/todolist/" element={<SaveToLocalStorage />}></Route>
+        <Route path="/pomodoro-clock" element={<PomodoroClock />}></Route>
       </Routes>
     </>
   );

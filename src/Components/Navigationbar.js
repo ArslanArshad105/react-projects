@@ -30,7 +30,9 @@ const Navigationbar = (props) => {
               <NavDropdown.Divider />
               <NavDropdown.Item href="/todolist/">To Do List</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#">{props.smm}</NavDropdown.Item>
+              <NavDropdown.Item href="/pomodoro-clock/">
+                Pomodoro Clock
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#">{props.sem}</NavDropdown.Item>
               <NavDropdown.Divider />
