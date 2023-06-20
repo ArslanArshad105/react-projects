@@ -1,8 +1,9 @@
 import React from "react";
 import "../PomodoroClock/PomodoroClock.css";
 import { Container, Row, Col } from "react-bootstrap";
-import BreakLength from "./BreakLength";
-import SessionLength from "./SessionLength";
+import BreakSection from "./BreakSection";
+import SessionSection from "./SessionSection";
+import Session from "./Session";
 
 const PomodoroClock = () => {
   return (
@@ -13,11 +14,14 @@ const PomodoroClock = () => {
           <h2 className="Heading-Color">25 + 5 Clock</h2>
           <Row>
             <Col>
-              <BreakLength />
+              <BreakSection />
             </Col>
             <Col>
-              <SessionLength />
+              <SessionSection />
             </Col>
+          </Row>
+          <Row>
+            <Session />
           </Row>
         </Container>
       </Container>

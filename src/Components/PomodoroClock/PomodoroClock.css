@@ -21,6 +21,31 @@
 }
 .Heading4-width{
     display: inline-block;
-    margin-left: 10px;
+    margin: 0px 10px 0px 10px;
+    color: #FFFFFF;
+}
+.Session-Col{
+    margin-top: 50px;
+    border: 2px solid #ffffff;
+    margin: 50px auto 50px auto;
+    width: 270px;
+    height: 160px;
+    border-radius: 20px;
+    position: relative;
+}
+.Session-Heading{
+    color: #FFFFFF !important;
+    font-size: 50px;
+}
+.Session-Button{
+    display: inline-block;
     margin-right: 10px;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+.Fa-Square-Plus{
+    height: 35px;
+    color: #FFFFFF;
+    cursor: pointer;
 }
