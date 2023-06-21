@@ -10,7 +10,7 @@
     max-height: auto;
 }
 .Pomo-Center-Container{
-    margin: 100px;
+    margin: 40px;
     background-color: #07071c;
     border-radius: 8px;
     height:fit-content;
@@ -27,7 +27,7 @@
 .Session-Col{
     margin-top: 50px;
     border: 2px solid #ffffff;
-    margin: 50px auto 50px auto;
+    margin: 30px auto 30px auto;
     width: 270px;
     height: 160px;
     border-radius: 20px;
