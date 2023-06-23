@@ -35,7 +35,11 @@ const PomodoroClock = () => {
             </Col>
           </Row>
           <Row>
-            <Session timer={time} />
+            <Session
+              timer={time}
+              resetTime={setTime}
+              resetBreak={setBreakLength}
+            />
           </Row>
         </Container>
       </Container>
