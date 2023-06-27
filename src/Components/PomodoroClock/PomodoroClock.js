@@ -36,6 +36,7 @@ const PomodoroClock = () => {
           </Row>
           <Row>
             <Session
+              breakTime={breakLength}
               timer={time}
               resetTime={setTime}
               resetBreak={setBreakLength}
