@@ -6,6 +6,7 @@ import Card2 from "../AirbnbPage/Card2";
 import { data } from "../../data";
 import axios from "axios";
 import Spinner from "../LoadingSpinner/Spinner";
+import { Helmet } from "react-helmet";
 
 const Airbnb = () => {
   const [records, setRecords] = useState([]);
@@ -72,11 +73,17 @@ const Airbnb = () => {
       </Navbar>
 
       <Container>
+        <Helmet>
+          <title>Airbnb | Arslan's Portfolio</title>
+        </Helmet>
         <Heroimg />
         <Row>{cards}</Row>
       </Container>
-      <Row style={{ backgroundColor: "#E5E7E9", marginBottom: "20px" }}>
-        <h1 className="card2heading">The Data Below is Rendering from API</h1>
+      <Row>
+        <h1 className="card2heading">Platzi Fake Store API</h1>
+        <p className="card2Para">
+          Fake store rest API for e-commerce or shopping website prototype.
+        </p>
       </Row>
       <Container>
         <Row>

@@ -3,6 +3,7 @@ import "../PomodoroClock/PomodoroClock.css";
 import { Container, Row, Col } from "react-bootstrap";
 import BreakSessionLength from "./BreakSessionLength";
 import Session from "./Session";
+import { Helmet } from "react-helmet";
 
 const PomodoroClock = () => {
   const [time, setTime] = useState(25);
@@ -13,6 +14,9 @@ const PomodoroClock = () => {
   return (
     <>
       <Container className="Pomo-Main-Container">
+        <Helmet>
+          <title>Pomodoro Clock | Arslan's Portfolio</title>
+        </Helmet>
         <Container className="Pomo-Center-Container">
           <h1 className="Heading-Color" style={{ paddingTop: "30px" }}>
             Pomodoro Clock

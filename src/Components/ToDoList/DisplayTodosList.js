@@ -4,6 +4,7 @@ import InputTodos from "./InputTodos";
 import TodosList from "./TodosList";
 import EditTodoTask from "./EditTodoTask";
 import { v4 as uuidv4 } from "uuid";
+import { Helmet } from "react-helmet";
 
 const DisplayTodosList = () => {
   const [todos, setTodos] = useState([]);
@@ -47,6 +48,9 @@ const DisplayTodosList = () => {
   return (
     <>
       <Container className="Main-Container">
+        <Helmet>
+          <title>Todos List - Arslan's Portfolio</title>
+        </Helmet>
         <Container className="Center-Container">
           <InputTodos AddTodo={AddTodos} />
           {todos.map((todo, index) =>

@@ -18,7 +18,7 @@ const Navigationbar = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/about-us/">About Us</Nav.Link>
+            <Nav.Link href="/about-us">About Us</Nav.Link>
             <NavDropdown
               title="Portfolio"
               id="basic-nav-dropdown"
@@ -26,20 +26,19 @@ const Navigationbar = (props) => {
               onMouseEnter={showDropdown}
               onMouseLeave={hideDropdown}
             >
-              <NavDropdown.Item href="/airbnb/">Airbnb</NavDropdown.Item>
+              <NavDropdown.Item href="/airbnb">Airbnb</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/todolist/">To Do List</NavDropdown.Item>
+              <NavDropdown.Item href="/todolist">To Do List</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/pomodoro-clock/">
+              <NavDropdown.Item href="/pomodoro-clock">
                 Pomodoro Clock
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#">{props.sem}</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#">{props.ppc}</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/blogs/">Blogs</Nav.Link>
-            <Nav.Link href="/contact-us/">{props.contactus}</Nav.Link>
+            <Nav.Link href="/blogs">Blogs</Nav.Link>
+            <Nav.Link href="/contact-us">{props.contactus}</Nav.Link>
+            <Button href="/signup" style={{ marginRight: "20px" }}>
+              Sign Up
+            </Button>
             <Button href={props.btnnmbrurl} variant="outline-primary">
               {props.button}
             </Button>
