@@ -31,7 +31,7 @@ const Session = (prop) => {
       }, 100);
       return () => clearInterval(interval);
     }
-  }, [seconds, minutes, startTimer]);
+  }, [seconds, minutes, startTimer, breakTime, isSessionTime, timer]);
 
   const onClickReset = () => {
     setStartTimer(false);

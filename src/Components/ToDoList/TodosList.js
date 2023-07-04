@@ -3,10 +3,14 @@ import "../ToDoList/Todolist.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Form, Col, Container, FormCheck } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 
 const TodosList = ({ task, DeleteTask, EditTask, handlechange }) => {
   return (
     <Container className="Todolist-container">
+      <Helmet>
+        <title>Todos List | Arslan's Portfolio</title>
+      </Helmet>
       <Col>
         <Form>
           <FormCheck
