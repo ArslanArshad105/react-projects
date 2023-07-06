@@ -8,7 +8,7 @@ import Airbnb from "./Components/AirbnbPage/Airbnb";
 // import DisplayTodosList from "./Components/ToDoList/DisplayTodosList";
 import SaveToLocalStorage from "./Components/ToDoList/SaveToLocalStorage";
 import PomodoroClock from "./Components/PomodoroClock/PomodoroClock";
-import SignUp from "./SignupPage/SignUp";
+import SignUp from "./Components/SignupPage/SignUp";
 import ContactUs from "./Components/ContactUs";
 
 function App() {
