@@ -10,6 +10,7 @@ import SaveToLocalStorage from "./Components/ToDoList/SaveToLocalStorage";
 import PomodoroClock from "./Components/PomodoroClock/PomodoroClock";
 import SignUp from "./Components/SignupPage/SignUp";
 import ContactUs from "./Components/ContactUs";
+import SignIn from "./Components/SignupPage/SignIn";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/todolist/" element={<SaveToLocalStorage />}></Route>
         <Route path="/pomodoro-clock" element={<PomodoroClock />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/signin" element={<SignIn />}></Route>
       </Routes>
     </>
   );

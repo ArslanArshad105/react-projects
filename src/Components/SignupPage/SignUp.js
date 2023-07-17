@@ -13,14 +13,16 @@ import {
 } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import "./Signup.css";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const SignUp = () => {
-  const [isPasswordShown, setIsPasswordShown] = useState(false);
-  const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
+  const [displaytext, setDisplayText] = useState({
+    password: false,
+    confirmPassword: false,
+  });
   const {
     register,
     handleSubmit,
@@ -29,22 +31,41 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (userdata) => {
-    console.log(watch(userdata));
+    // console.log(watch(userdata));
+    watch(userdata);
+
+    axios({
+      method: "POST",
+      mode: "cors",
+      url: "http://localhost:3000/api/v1/user/seller_signup/",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      data: userdata,
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
-  const showPassword = () => {
-    if (isPasswordShown === false) {
-      setIsPasswordShown(!isPasswordShown);
-    } else {
-      setIsPasswordShown(!isPasswordShown);
-    }
-  };
-  const showConfirmPassword = () => {
-    if (isConfirmPasswordShown === false) {
-      setIsConfirmPasswordShown(!isConfirmPasswordShown);
-    } else {
-      setIsConfirmPasswordShown(!isConfirmPasswordShown);
-    }
+  const showHidePassword = (field) => {
+    var temp = { ...displaytext };
+    if (field === "password") temp.password = !temp.password;
+    else temp.confirmPassword = !temp.confirmPassword;
+
+    setDisplayText({ ...temp });
+
+    // setDisplayText({
+    //   password:
+    //     field === "password" ? !displaytext.password : displaytext.password,
+    //   confirmPassword:
+    //     field === "confirmPassword"
+    //       ? !displaytext.confirmPassword
+    //       : displaytext.confirmPassword,
+    // });
   };
 
   return (
@@ -64,7 +85,7 @@ const SignUp = () => {
           >
             <Row className="logo">
               <a href="/signup" style={{ textAlign: "center" }}>
-                <img src="../../Media/Sozie_logo.png" alt="Logo" />
+                <img src="../../Media/Arslan_logo_3-1.png" alt="Logo" />
               </a>
             </Row>
             <Row className="mb-3">
@@ -73,12 +94,12 @@ const SignUp = () => {
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Row className="mb-3">
                 <Col xs={6} md={6} className="mb-3">
-                  <FormGroup controlId="formGroupFname">
+                  <FormGroup>
                     <FormLabel>First Name</FormLabel>
                     <FormControl
                       type="text"
                       placeholder="Enter First Name"
-                      {...register("FirstName", {
+                      {...register("first_name", {
                         required: {
                           value: true,
                           message: "First Name is required",
@@ -95,19 +116,21 @@ const SignUp = () => {
                       })}
                     />
 
-                    {errors.FirstName && (
-                      <p className="signup-error">{errors.FirstName.message}</p>
+                    {errors.first_name && (
+                      <p className="signup-error">
+                        {errors.first_name.message}
+                      </p>
                     )}
                   </FormGroup>
                 </Col>
 
                 <Col xs={6} md={6}>
-                  <FormGroup controlId="formGroupLname">
+                  <FormGroup>
                     <FormLabel>Last Name</FormLabel>
                     <FormControl
                       type="text"
                       placeholder="Enter Last Name"
-                      {...register("LastName", {
+                      {...register("last_name", {
                         required: {
                           value: true,
                           message: "Last Name is required",
@@ -123,19 +146,19 @@ const SignUp = () => {
                         },
                       })}
                     />
-                    {errors.LastName && (
-                      <p className="signup-error">{errors.LastName.message}</p>
+                    {errors.last_name && (
+                      <p className="signup-error">{errors.last_name.message}</p>
                     )}
                   </FormGroup>
                 </Col>
 
                 <Col xs={6} md={6} className="mb-3">
-                  <FormGroup controlId="formGroupCname">
+                  <FormGroup>
                     <FormLabel>Company Name</FormLabel>
                     <FormControl
                       type="text"
                       placeholder="Enter Company Name"
-                      {...register("CompanyName", {
+                      {...register("brand_name", {
                         required: {
                           value: true,
                           message: "Company Name is required",
@@ -151,21 +174,21 @@ const SignUp = () => {
                         },
                       })}
                     />
-                    {errors.CompanyName && (
+                    {errors.brand_name && (
                       <p className="signup-error">
-                        {errors.CompanyName.message}
+                        {errors.brand_name.message}
                       </p>
                     )}
                   </FormGroup>
                 </Col>
 
                 <Col xs={6} md={6}>
-                  <FormGroup controlId="formGroupEmail">
+                  <FormGroup>
                     <FormLabel>Email</FormLabel>
                     <FormControl
                       type="email"
                       placeholder="Enter Email"
-                      {...register("Email", {
+                      {...register("email", {
                         required: {
                           value: true,
                           message: "Email is required",
@@ -176,23 +199,23 @@ const SignUp = () => {
                         },
                       })}
                     />
-                    {errors.Email && (
-                      <p className="signup-error">{errors.Email.message}</p>
+                    {errors.email && (
+                      <p className="signup-error">{errors.email.message}</p>
                     )}
                   </FormGroup>
                 </Col>
                 <Col xs={6} md={6} className="mb-3">
-                  <FormGroup controlId="formGroupRetailer">
+                  <FormGroup>
                     <FormLabel>Retailers</FormLabel>
                     <FormSelect
                       placeholder="arslab"
-                      {...register("Retailers", { required: true })}
+                      {...register("retailer", { required: true })}
                     >
                       <option value="">Choose Retailer</option>
                       <option value={21}>Walmart</option>
                       <option value={10}>Target</option>
                     </FormSelect>
-                    {errors.Retailers && (
+                    {errors.retailer && (
                       <p className="signup-error">
                         Select a retailer from the list.
                       </p>
@@ -200,14 +223,16 @@ const SignUp = () => {
                   </FormGroup>
                 </Col>
                 <Col xs={6} md={6}>
-                  <FormGroup controlId="formGroupSeller">
+                  <FormGroup>
                     <FormLabel>Seller or Supplier</FormLabel>
-                    <FormSelect {...register("Sellers", { required: true })}>
+                    <FormSelect
+                      {...register("vendor_type", { required: true })}
+                    >
                       <option value="">Seller or Supplier - Pick One</option>
                       <option value="SEL">Seller</option>
                       <option value="SUP">Supplier</option>
                     </FormSelect>
-                    {errors.Sellers && (
+                    {errors.vendor_type && (
                       <p className="signup-error">
                         You need to select an option.
                       </p>
@@ -222,9 +247,9 @@ const SignUp = () => {
                       <FormGroup>
                         <FormControl
                           className="col-password form-control-focus"
-                          type={isPasswordShown ? "text" : "password"}
+                          type={displaytext.password ? "text" : "password"}
                           placeholder="Enter Password"
-                          {...register("Password", {
+                          {...register("password", {
                             required: {
                               value: true,
                               message: "Please enter password to continue.",
@@ -247,13 +272,13 @@ const SignUp = () => {
                     <Col xs={2} md={2} className="col-icon">
                       <FontAwesomeIcon
                         className="fa-Eye"
-                        icon={isPasswordShown ? faEyeSlash : faEye}
-                        onClick={showPassword}
+                        icon={displaytext.password ? faEye : faEyeSlash}
+                        onClick={(e) => showHidePassword("password")}
                       />
                     </Col>
                   </Row>
-                  {errors.Password && (
-                    <p className="signup-error">{errors.Password.message}</p>
+                  {errors.password && (
+                    <p className="signup-error">{errors.password.message}</p>
                   )}
                 </Col>
 
@@ -264,11 +289,14 @@ const SignUp = () => {
                       <FormGroup>
                         <FormControl
                           className="col-password form-control-focus"
-                          type={isConfirmPasswordShown ? "text" : "password"}
+                          type={
+                            displaytext.confirmPassword ? "text" : "password"
+                          }
                           placeholder="Confirm Password"
                           {...register("Confirm_Password", {
                             required: {
                               value: true,
+                              message: "The field is required.",
                             },
                           })}
                         />
@@ -277,24 +305,29 @@ const SignUp = () => {
                     <Col xs={2} md={2} className="col-icon">
                       <FontAwesomeIcon
                         className="fa-Eye"
-                        icon={isConfirmPasswordShown ? faEyeSlash : faEye}
-                        onClick={showConfirmPassword}
+                        icon={displaytext.confirmPassword ? faEye : faEyeSlash}
+                        onClick={(e) => showHidePassword("confirmPassword")}
                       />
                     </Col>
                   </Row>
-                  {watch("Confirm_Password") !== watch("Password") &&
+                  {watch("Confirm_Password") !== watch("password") &&
                   getValues("Confirm_Password") ? (
                     <p style={{ color: "red", fontSize: "12px" }}>
                       Password does not match
                     </p>
                   ) : null}
                 </Col>
+                {errors.Confirm_Password && (
+                  <p className="signup-error">
+                    {errors.Confirm_Password.message}
+                  </p>
+                )}
               </Row>
 
               <Row className="mb-3">
                 <Col xs={3}></Col>
                 <Col xs={6}>
-                  <FormGroup controlId="formGroupCode">
+                  <FormGroup>
                     <FormLabel>Code</FormLabel>
                     <FormControl
                       type="text"
@@ -337,9 +370,10 @@ const SignUp = () => {
                   <Button
                     className="signup-button"
                     // onClick={(e) => {
-                    //   handleSubmit(e);
+                    //   handleSubmitButton(e);
                     // }}
                     type="submit"
+                    // onClick={reset}
                   >
                     Sign Up
                   </Button>
@@ -348,7 +382,7 @@ const SignUp = () => {
             </Form>
             <Row>
               <p>
-                Already have an account? <Link> Sign In</Link>
+                Already have an account? <a href="/signin">Sign In</a>
               </p>
             </Row>
           </Col>
