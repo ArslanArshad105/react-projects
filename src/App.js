@@ -15,18 +15,11 @@ import SignIn from "./Components/SignupPage/SignIn";
 function App() {
   return (
     <>
-      <Navigationbar
-        title="Arslan"
-        aboutus="About Us"
-        blogs="Blogs"
-        contactus="Contact Us"
-        btnnmbrurl="tel: +923070949488"
-        button="+923070949488"
-      />
+      <Navigationbar btnnmbrurl="tel: +923070949488" button="+923070949488" />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/contact-us/" element={<ContactUs />}></Route>
-        <Route path="/about-us/" element={<AboutUs />}></Route>
+        <Route path="/contact/" element={<ContactUs />}></Route>
+        <Route path="/about/" element={<AboutUs />}></Route>
         <Route path="/blogs/" element={<Blogs />}></Route>
         <Route path="/airbnb/" element={<Airbnb />}></Route>
         <Route path="/todolist/" element={<SaveToLocalStorage />}></Route>

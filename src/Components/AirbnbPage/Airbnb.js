@@ -3,10 +3,11 @@ import { Row, Container, Navbar, Button, Col } from "react-bootstrap";
 import Heroimg from "../AirbnbPage/Heroimg";
 import Card from "../AirbnbPage/Card";
 import Card2 from "../AirbnbPage/Card2";
-import { data } from "../../data";
+import { data } from "../../Services/data";
 import axios from "axios";
 import Spinner from "../LoadingSpinner/Spinner";
 import { Helmet } from "react-helmet";
+import * as Constants from "../../Services/Constants";
 
 const Airbnb = () => {
   const [records, setRecords] = useState([]);
@@ -17,7 +18,7 @@ const Airbnb = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://api.escuelajs.co/api/v1/products", {
+      .get(Constants.FAKE_STORE_API, {
         params: {
           offset: pagenumber * 10,
           limit: 10,

@@ -73,8 +73,8 @@ const DisplayTodosList = () => {
 
   return (
     <>
-      <Container className="Main-Container">
-        <Container className="Center-Container">
+      <Container className="Todo-Main-Container">
+        <Container className="Todo-Center-Container">
           <InputTodos AddTodo={AddTodos} />
           {todos.map((todo, index) =>
             todo.isEditing ? (

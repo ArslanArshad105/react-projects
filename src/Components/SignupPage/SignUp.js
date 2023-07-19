@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import * as Constants from "../../Services/Constants";
 
 const SignUp = () => {
   const [displaytext, setDisplayText] = useState({
@@ -28,28 +29,77 @@ const SignUp = () => {
     handleSubmit,
     watch,
     getValues,
+    reset,
+    setError,
     formState: { errors },
   } = useForm();
-  const onSubmit = (userdata) => {
+  const onSubmit = async (userdata) => {
     // console.log(watch(userdata));
     watch(userdata);
 
     axios({
       method: "POST",
-      mode: "cors",
-      url: "http://localhost:3000/api/v1/user/seller_signup/",
+      url: Constants.BASEURL + "user/seller_signup/",
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
       data: userdata,
     })
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
+
+        reset({
+          first_name: "",
+          last_name: "",
+          brand_name: "",
+          email: "",
+          retailer: "",
+          vendor_type: "",
+          password: "",
+          Confirm_Password: "",
+          Code: "",
+          Terms: false,
+        });
+        setDisplayText(false);
       })
       .catch(function (error) {
+        const errorMessage = error.response.data.email
+          ? "The email is already registered."
+          : error.response.data.detail.includes("RETAILER: Walmart, ID: 21")
+          ? "Choose Walmart Retailer beacuse SELLER is already existed with Target!"
+          : error.response.data.detail.includes("RETAILER: Target, ID: 10")
+          ? "Choose Target Retailer beacuse SELLER is already existed with Walmart!"
+          : error.response.data.detail.includes("vendor type: SEL")
+          ? "Choose Seller, with this Company Name to create user beacuse Company is already existed!"
+          : error.response.data.detail.includes("vendor type: SUP")
+          ? "Choose Supplier, with this Company Name to create user beacuse Company is already existed!"
+          : null;
+
         console.log(error);
+        setError(error.response.data.email ? "email" : "root.serverError", {
+          type: error.response.status,
+          message: errorMessage,
+        });
       });
   };
+
+  // useEffect(() => {
+  //   if (formState.isSubmitSuccessful) {
+  //     reset({
+  //       first_name: "",
+  //       last_name: "",
+  //       brand_name: "",
+  //       email: "",
+  //       retailer: "",
+  //       vendor_type: "",
+  //       password: "",
+  //       Confirm_Password: "",
+  //       Code: "",
+  //       Terms: false,
+  //     });
+  //     setDisplayText(false);
+  //   }
+  // }, [formState, isSubmitSuccessful, reset]);
 
   const showHidePassword = (field) => {
     var temp = { ...displaytext };
@@ -57,15 +107,6 @@ const SignUp = () => {
     else temp.confirmPassword = !temp.confirmPassword;
 
     setDisplayText({ ...temp });
-
-    // setDisplayText({
-    //   password:
-    //     field === "password" ? !displaytext.password : displaytext.password,
-    //   confirmPassword:
-    //     field === "confirmPassword"
-    //       ? !displaytext.confirmPassword
-    //       : displaytext.confirmPassword,
-    // });
   };
 
   return (
@@ -168,7 +209,7 @@ const SignUp = () => {
                           message: "The Maximum Length is reached.",
                         },
                         pattern: {
-                          value: /^[A-Za-z]+$/i,
+                          value: /^[A-Za-z]+ +[A-Za-z]+$/i,
                           message:
                             "Special Characters and Numbers are not allowed.",
                         },
@@ -272,7 +313,7 @@ const SignUp = () => {
                     <Col xs={2} md={2} className="col-icon">
                       <FontAwesomeIcon
                         className="fa-Eye"
-                        icon={displaytext.password ? faEye : faEyeSlash}
+                        icon={displaytext.password ? faEyeSlash : faEye}
                         onClick={(e) => showHidePassword("password")}
                       />
                     </Col>
@@ -305,7 +346,7 @@ const SignUp = () => {
                     <Col xs={2} md={2} className="col-icon">
                       <FontAwesomeIcon
                         className="fa-Eye"
-                        icon={displaytext.confirmPassword ? faEye : faEyeSlash}
+                        icon={displaytext.confirmPassword ? faEyeSlash : faEye}
                         onClick={(e) => showHidePassword("confirmPassword")}
                       />
                     </Col>
@@ -367,14 +408,12 @@ const SignUp = () => {
 
               <Row className="mb-3" style={{ justifyContent: "center" }}>
                 <Col sm={5}>
-                  <Button
-                    className="signup-button"
-                    // onClick={(e) => {
-                    //   handleSubmitButton(e);
-                    // }}
-                    type="submit"
-                    // onClick={reset}
-                  >
+                  {errors.root?.serverError.type === 400 && (
+                    <p className="signup-error">
+                      {errors.root.serverError.message}
+                    </p>
+                  )}
+                  <Button className="signup-button" type="submit">
                     Sign Up
                   </Button>
                 </Col>
