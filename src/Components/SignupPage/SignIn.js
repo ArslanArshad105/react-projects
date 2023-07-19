@@ -126,7 +126,7 @@ const SignIn = () => {
                     <Col xs={1} sm={2} md={2} className="col-icon">
                       <FontAwesomeIcon
                         className="fa-Eye"
-                        icon={showPassword ? faEye : faEyeSlash}
+                        icon={showPassword ? faEyeSlash : faEye}
                         onClick={showHidePassword}
                       />
                     </Col>

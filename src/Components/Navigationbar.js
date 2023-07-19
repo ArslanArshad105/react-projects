@@ -13,12 +13,18 @@ const Navigationbar = (props) => {
   return (
     <Navbar bg="light" expand="lg" className="stickyNavbar">
       <Container>
-        <Navbar.Brand href="/">{props.title}</Navbar.Brand>
+        <Navbar.Brand href="/" style={{ height: "80px" }}>
+          <img
+            src="../../Media/Arslan_Logo_2-1.png"
+            alt="Logo"
+            style={{ height: "70px" }}
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/about-us">About Us</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
             <NavDropdown
               title="Portfolio"
               id="basic-nav-dropdown"
@@ -35,7 +41,7 @@ const Navigationbar = (props) => {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/blogs">Blogs</Nav.Link>
-            <Nav.Link href="/contact-us">{props.contactus}</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
             <Button href="/signup" style={{ marginRight: "20px" }}>
               Sign Up
             </Button>
