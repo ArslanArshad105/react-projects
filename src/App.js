@@ -11,6 +11,7 @@ import PomodoroClock from "./Components/PomodoroClock/PomodoroClock";
 import SignUp from "./Components/SignupPage/SignUp";
 import ContactUs from "./Components/ContactUs";
 import SignIn from "./Components/SignupPage/SignIn";
+import MyAccount from "./Components/MyAccount";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/pomodoro-clock" element={<PomodoroClock />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
+        <Route path="/myaccount" element={<MyAccount />}></Route>
       </Routes>
     </>
   );

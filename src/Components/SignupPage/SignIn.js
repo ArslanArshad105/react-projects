@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import * as Constants from "../../Services/Constants";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,24 +23,24 @@ const SignIn = () => {
     register,
     handleSubmit,
     watch,
-    // getValues,
     formState: { errors },
   } = useForm();
   const onSubmit = (userdata) => {
-    console.log(watch(userdata));
-
+    // console.log(watch(userdata));
+    watch(userdata);
+    userdata.type = "r";
     axios({
       method: "POST",
-      mode: "cors",
-      url: "https://stage-api.sozie.com/api/v1/user/seller_signup/",
+      url: Constants.BASEURL + "user/login/",
       headers: {
         "Access-Control-Allow-Origin": "*",
-        // "Access-Control-Allow-Credentials": true,
       },
+      // data: { ...userdata, type: "r" },
       data: userdata,
     })
       .then(function (response) {
         console.log(response);
+        window.location = "/myaccount";
       })
       .catch(function (error) {
         console.log(error);
@@ -77,7 +78,7 @@ const SignIn = () => {
                     <FormControl
                       type="email"
                       placeholder="Enter Email"
-                      {...register("Email", {
+                      {...register("email", {
                         required: {
                           value: true,
                           message: "Email is required",
@@ -103,7 +104,7 @@ const SignIn = () => {
                           className="col-password form-control-focus"
                           type={showPassword ? "text" : "password"}
                           placeholder="Enter Password"
-                          {...register("Password", {
+                          {...register("password", {
                             required: {
                               value: true,
                               message: "Please enter password to continue.",
@@ -139,13 +140,7 @@ const SignIn = () => {
 
               <Row className="mb-3" style={{ justifyContent: "center" }}>
                 <Col sm={5}>
-                  <Button
-                    className="signup-button"
-                    // onClick={(e) => {
-                    //   handleSubmit(e);
-                    // }}
-                    type="submit"
-                  >
+                  <Button className="signup-button" type="submit">
                     Sign In
                   </Button>
                 </Col>
